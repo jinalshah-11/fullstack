@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Combinations of String</title>
+</head>
+
+<body>
+    <script>
+        
+let combo = (str) =>{
+	let strcombo = [];
+	for(let i = 0 ;i < str.length; i++)
+	{
+		for(let j = i + 1; j< str.length + 1; j++)
+		{
+			strcombo.push(str.slice(i , j));
+		}
+	}
+return strcombo;
+}
+console.log(combo('JinalShah'));
+
+
+    </script>
+</body>
+</html>
