@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <script>
+        const n1 = parseInt(prompt('Enter a number: '));
+
+        if (n1 < 0) 
+        {
+            console.log('Factorial of negative number is not counted');
+        }
+        else if (n1 == 0)
+        {
+            console.log(`The Factorial of ${n1} is 1`);
+        }
+        else
+        {
+            let fact = 1;
+            for (i = 1; i <= n1; i++)
+            {
+                fact *= i;
+            }
+            console.log(`The factorial of ${n1} is ${fact} `);
+        }
+        </script>
+    </body>
+</html>

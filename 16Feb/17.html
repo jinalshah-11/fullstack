@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input type="text" name="" id="num" placeholder="Enter number">
+        <br>
+        <br>
+        <input type="button" value="Click Me" onclick="PerfectNum()">
+
+        <script>
+            function PerfectNum(){
+                var n1=parseInt(document.getElementById("num").value);
+                var sum=0;
+                var rem;
+                for(i=0;i<n1;i++){
+                  rem=n1%i;
+                  if(rem==0){
+                  sum=sum+i;
+                  }
+
+                }
+                if(sum==n1){
+                      alert("Perfect Number")
+                  }else{
+                      alert("Not A Perfect Number")
+                  }
+            }
+        </script>
+    </body>
+</html>

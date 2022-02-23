@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1> Marks</h1>
+        <br><br>
+        English:<input type="text" id="eng"><br><br>
+        Maths:<input type="text" id="maths"><br><br>
+        Computer:<input type="text" id="comp"><br><br>
+        <input type="submit" id="result1" onclick="result()">
+
+        <br><br>
+        <b id="StudentResult"></b>
+
+        <script>
+            function result()
+            {
+                var English=parseInt(document.getElementById("eng").value);
+                var Maths=parseInt(document.getElementById("maths").value);
+                var Computer=parseInt(document.getElementById("comp").value);
+                var total=English+Maths+Computer;
+                var percent=total/3;
+                document.getElementById("StudentResult").innerHTML=`total : ${total} , percentage : ${percent}`;
+           }
+        </script>
+    </body>
+</html>
