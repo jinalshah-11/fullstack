@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>
+        Rs.Notes
+</title>
+</head>
+<body>
+    <label>Hundred Rupees Notes</label>
+    <input type="text" id="hundred">
+    <label>Fifty Rupees Notes</label>
+    <input type="text" id="fifty">
+    <label>Twenty Rupees Notes</label>
+    <input type="text" id="twenty">
+    <label>Ten Rupees Notes</label>
+    <input type="text" id="ten">
+    <label>Five Rupees Notes</label>
+    <input type="text" id="five">
+    <label>Two Rupees Notes</label>
+    <input type="text" id="two">
+    <input type="submit" onclick="rsnotes">
+    <script>
+        function rsnotes()
+        {
+            var h=parseInt(document.getElementById("hundred"));
+            var f=parseInt(document.getElementById("fifty"));
+            var tw=parseInt(document.getElementById("twenty"));
+            var t=parseInt(document.getElementById("ten"));
+            var fi=parseInt(document.getElementById("five"));
+            var two1=parseInt(document.getElementById("two"));
+            var total;
+            total=h+(total-f)+(total-tw)+(total-t)+(total-fi)+(total-two1);
+            document.write(total);
+        }
+    </script>
+</body>
