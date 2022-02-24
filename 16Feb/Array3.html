@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Odd Even</title>
+    </head>
+    <body>
+       <script>    
+            function CountingEvenOdd(arr, arraysize)
+            {
+                let evenc= 0;
+                let oddc = 0;
+                for (let i = 0; i < arraysize; i++) 
+                {
+                    if (arr[i] & 1 == 1)
+                    oddc++;
+                    else
+                    evenc++;
+                }
+                console.log("Number of even elements = " + evenc); 
+                console.log("Number of odd elements = " + oddc);
+            }    
+                let arr = [11,18,7,28,63,85,72,46,53,36,0];
+                let count = arr.length;
+                CountingEvenOdd(arr, count);
+    </script>
+    </html>
