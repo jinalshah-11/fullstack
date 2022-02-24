@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+	Minimum And Maximum of Array
+</title>
+</head>
+
+<body>
+	<p>Minimum element is: <span class="min">
+	</span>
+		<br>Maximum Element is: <span class="max">
+	</span></p>
+	<button onclick="MinMax()">
+	Click to check
+</button>
+	<script>
+		function MinMax() {
+			array = [50, 60, 20, 10, 40];
+			minValue = Math.min(...array);
+			maxValue = Math.max(...array);
+			document.querySelector(
+			'.min').textContent = minValue;
+			document.querySelector(
+			'.max').textContent = maxValue;
+		}
+	</script>
+</body>
+
+</html>
