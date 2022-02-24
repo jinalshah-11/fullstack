@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> HTML5 </title>
+</head>
+<body>
+    <input type="button" onclick="getLocation()">
+    <script>
+        function showLocation( position ) 
+        {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            console.log(latitude);
+            console.log(longitude);
+        }
+        function errorHandler( err ) 
+        {
+            if (err.code == 1)
+            {
+                alert("Access Denied")
+            }
+        }
+        function getLocation() 
+        {
+            var geolocation = navigator.geolocation;
+            geolocation.getCurrentPosition(showLocation, errorHandler, {maximumAge: 75000});
+        }
+    </script>
+</body>
+</html>
