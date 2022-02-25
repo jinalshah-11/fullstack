@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <button id="btn">
+            Click Me
+        </button>
+        <script>
+            const msg=function(){
+                  console.log("After 5 sec");
+            }
+
+            setTimeout(msg,5000)
+
+            setTimeout(function(){
+                console.log("After 5 sec");
+            },5000)
+
+            setTimeout(()=>{
+                console.log(" After 2sec");
+            },2000);
+            
+            document.querySelector("#btn").addEventListener("click",function(){
+                console.log("Button clicked");
+            })
+        </script>
+    </body>
+</html>

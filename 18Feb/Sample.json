@@ -1,0 +1,10 @@
+{
+    "cities":[
+        {"city":"Ahmedabad","state":"Gujarat"},
+        {"city":"Jaipur","state":"Rajasthan"},
+        {"city":"Thane","state":"Maharashtra"},
+        {"city":"Amritsar","state":"Punjab"}
+
+    ]
+
+}
