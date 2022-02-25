@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Linear Search</title>
+<script>
+    function LinearSearch()
+{
+    var n1=parseInt(prompt("Enter the size of an array"));
+    var arr=new Array(n1);
+    var l=0;
+    for(var i=0; i<arr.length; i++)
+    {
+        arr[i]=parseInt(prompt("Enter array elements"));
+    }
+    var ke=parseInt(prompt("Enter the key element to search: "));
+    for(var i=0; i<arr.length; i++)
+    {
+        if(ke==arr[i])
+        {
+            l=1;
+            break;
+        }
+    }
+    if(l==1)
+    {
+        document.write("Element "+arr[i]+ " Found at Position:"+i);
+    }
+    else
+    {
+        document.write("Element Not Found");
+    }
+}
+</script>
+</head>
+<body  onLoad="LinearSearch()"></body>
+</html>
