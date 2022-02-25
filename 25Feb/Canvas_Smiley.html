@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> Smiley in Canvas </title>
+</head>
+<body>
+    <canvas id="canvas1" width="600" height="450"></canvas>
+    <script>
+    var canvas = document.getElementById('canvas1');
+    var canv = canvas.getContext('2d');
+
+    canv.fillStyle = 'Yellow';
+    canv.strokeStyle = 'yellow';
+    canv.lineWidth = 5;
+    canv.beginPath();
+    canv.arc(320, 240, 200, 0, 2 * Math.PI);
+    canv.fill();
+    canv.stroke();
+    canv.closePath();
+
+    canv.fillStyle = 'black';
+    canv.beginPath();
+    canv.arc(270, 175, 30, 0, 2 * Math.PI);
+    canv.fill();
+    canv.stroke();
+    canv.closePath();
+
+    canv.beginPath();
+    canv.arc(370, 175, 30, 0, 2 * Math.PI);
+    canv.fill();
+    canv.stroke();
+    canv.closePath();
+
+    canv.strokeStyle = 'black';
+    canv.lineWidth = 5;
+    canv.beginPath();
+    canv.arc(320, 240, 140, 0, -1 * Math.PI);
+    canv.stroke();
+</script>
+</body>
+</html>
