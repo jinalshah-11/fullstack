@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+   <head> 
+      <style>
+         #canptrn
+         {
+            width:100px;
+            height:100px;
+            margin: 0px auto;
+         }
+      </style>
+    </head>
+    <body>
+          <input type = "submit" onclick = "canPtrn();">
+          <canvas id = "canva"></canvas>
+          <script>
+            function canPtrn()
+            {  
+                 var canvas = document.getElementById('canva');
+                 if (canvas.getContext) 
+                 {
+                   var can = canvas.getContext('2d');
+                   var img = new Image();
+               
+                   img.src = 'img.jpg';
+                   img.onload = function() 
+                   {
+                      var p = can.createPattern(img,'repeat');
+                      can.fillStyle = p;
+                      can.fillRect(0,0,150,150);
+                   }
+                 }
+           }
+      </script>
+   </body>
+</html>

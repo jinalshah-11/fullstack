@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Canvas Path</title>
+</head>
+<body>
+<canvas id="canva" width="200" height="200" style="border: 2px solid black;"></canvas>
+<script>
+var canvas = document.getElementById("canva");
+var can = canvas.getContext("2d");
+
+can.fillStyle   = 'yellow';
+can.strokeStyle = 'purple';
+can.lineWidth   = 2;
+can.beginPath();
+
+can.moveTo(20, 20); 
+can.lineTo(190, 20);
+can.lineTo(20, 190);
+can.lineTo(20, 20);
+
+can.fill();
+can.stroke();
+can.closePath();
+</script>
+</body> 
+</html>
