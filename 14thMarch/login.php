@@ -19,8 +19,8 @@
 	if(!empty($_POST['username'])){
 		$uname = ($_POST['username']);
         $pswd = ($_POST['password']);
-		setcookie('username', $uname, time()+30); 
-        setcookie('password', $pswd, time()+30); 
+		setcookie('username', $uname, time()+3600); 
+        setcookie('password', $pswd, time()+3600); 
 		header('Location: logout.php');
 	}
     elseif(empty($_POST['username'])){
