@@ -677,7 +677,8 @@ select emp_name from department ORDER BY salary desc;
 +-----------------+
 
 
-38)
+38) DISPLAY THE DETAILS FROM EMP TABLE IN ORDER OF EMP NAME
+
 select emp_name from department ORDER BY emp_name asc;
 +-----------------+
 | emp_name        |
