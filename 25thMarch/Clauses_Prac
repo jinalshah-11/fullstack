@@ -1,0 +1,235 @@
+1) WHERE CLAUSE :
+
+SELECT * FROM department where emp_name='JinalShah';
++--------+---------+-----------+------------------+--------+---------------+------------+--------------+-----------------+
+| emp_id | dept_id | emp_name  | emp_job          | salary | annual_salary | commission | joining_date | experience_year |
++--------+---------+-----------+------------------+--------+---------------+------------+--------------+-----------------+
+|      1 |      12 | JinalShah | FullStackTrainee |  25000 |        300000 |       5000 | 2022-02-02   |               2 |
+|      8 |     450 | JinalShah | SystemAnalyst    |  15000 |        180000 |       3000 | 2010-09-25   |              11 |
++--------+---------+-----------+------------------+--------+---------------+------------+--------------+-----------------+
+
+2) SELECT DISTINCT :
+
+SELECT DISTINCT dept_id from department;
++---------+
+| dept_id |
++---------+
+|      12 |
+|      15 |
+|      18 |
+|      22 |
+|       7 |
+|       5 |
+|      32 |
+|     450 |
+|     560 |
+|     350 |
+|     260 |
+|     540 |
+|     360 |
+|     210 |
+|     110 |
++---------+
+
+3) AND :
+
+SELECT * FROM department where emp_id=1 and emp_name='JinalShah';
++--------+---------+-----------+------------------+--------+---------------+------------+--------------+-----------------+
+| emp_id | dept_id | emp_name  | emp_job          | salary | annual_salary | commission | joining_date | experience_year |
++--------+---------+-----------+------------------+--------+---------------+------------+--------------+-----------------+
+|      1 |      12 | JinalShah | FullStackTrainee |  25000 |        300000 |       5000 | 2022-02-02   |               2 |
++--------+---------+-----------+------------------+--------+---------------+------------+--------------+-----------------+
+
+
+4) OR :
+
+SELECT * FROM department where emp_id=1 or emp_name='JinalShah';
++--------+---------+-----------+------------------+--------+---------------+------------+--------------+-----------------+
+| emp_id | dept_id | emp_name  | emp_job          | salary | annual_salary | commission | joining_date | experience_year |
++--------+---------+-----------+------------------+--------+---------------+------------+--------------+-----------------+
+|      1 |      12 | JinalShah | FullStackTrainee |  25000 |        300000 |       5000 | 2022-02-02   |               2 |
+|      8 |     450 | JinalShah | SystemAnalyst    |  15000 |        180000 |       3000 | 2010-09-25   |              11 |
++--------+---------+-----------+------------------+--------+---------------+------------+--------------+-----------------+
+
+
+5) IN :
+
+SELECT * FROM department where emp_name in('JinalShah','NidhiJain','AaqibShaikh');
++--------+---------+-------------+------------------+--------+---------------+------------+--------------+-----------------+
+| emp_id | dept_id | emp_name    | emp_job          | salary | annual_salary | commission | joining_date | experience_year |
++--------+---------+-------------+------------------+--------+---------------+------------+--------------+-----------------+
+|      1 |      12 | JinalShah   | FullStackTrainee |  25000 |        300000 |       5000 | 2022-02-02   |               2 |
+|      8 |     450 | JinalShah   | SystemAnalyst    |  15000 |        180000 |       3000 | 2010-09-25   |              11 |
+|      9 |     560 | NidhiJain   | FullStackTrainee |  25000 |        300000 |       5000 | 2009-05-10   |              12 |
+|     11 |     260 | AaqibShaikh | FullStackTrainee |  25000 |        300000 |       5000 | 2002-12-28   |              20 |
++--------+---------+-------------+------------------+--------+---------------+------------+--------------+-----------------+
+
+
+6) NOT IN :
+
+SELECT * FROM department where emp_name not in('JinalShah','NidhiJain','AaqibShaikh');
++--------+---------+-----------------+------------------+--------+---------------+------------+--------------+-----------------+
+| emp_id | dept_id | emp_name        | emp_job          | salary | annual_salary | commission | joining_date | experience_year |
++--------+---------+-----------------+------------------+--------+---------------+------------+--------------+-----------------+
+|      2 |      15 | PrachiShah      | WebDeveloper     |  35000 |        300000 |       5000 | 2021-10-11   |               1 |
+|      3 |      18 | RajShah         | Finance          |  20000 |        240000 |       3000 | 2021-12-11   |               1 |
+|      4 |      22 | RujulShah       | Marketing        |  30000 |        360000 |       5000 | 2020-11-07   |               2 |
+|      5 |       7 | AmilShah        | QA               |  35000 |        420000 |       5000 | 2018-12-11   |               4 |
+|      6 |       5 | KhushiShukla    | Trainee          |  20000 |        240000 |       3000 | 2015-07-16   |               7 |
+|      7 |      32 | Deep Vakharia   | FullStackTrainee |  25000 |        300000 |       5000 | 2012-11-24   |              10 |
+|     10 |     350 | GhanshyamPandya | FullStackTrainee |  25000 |        300000 |       5000 | 2004-10-09   |              17 |
+|     12 |     540 | RaviVaghela     | FullStackTrainee |  25000 |        300000 |       5000 | 2020-01-02   |              20 |
+|     13 |     360 | TakshShah       | CRManager        |  50000 |        600000 |      10000 | 2021-11-07   |               1 |
+|     14 |     210 | JinayShah       | QATrainee        |  33000 |       3960000 |       7000 | 2019-10-16   |               3 |
+|     15 |     110 | PreetJethaliya  | CTO              | 100000 |       1200000 |      50000 | 2006-02-18   |              16 |
++--------+---------+-----------------+------------------+--------+---------------+------------+--------------+-----------------+
+
+
+7) BETWEEN :
+
+SELECT * FROM department where emp_id between 1 and 10;
++--------+---------+-----------------+------------------+--------+---------------+------------+--------------+-----------------+
+| emp_id | dept_id | emp_name        | emp_job          | salary | annual_salary | commission | joining_date | experience_year |
++--------+---------+-----------------+------------------+--------+---------------+------------+--------------+-----------------+
+|      1 |      12 | JinalShah       | FullStackTrainee |  25000 |        300000 |       5000 | 2022-02-02   |               2 |
+|      2 |      15 | PrachiShah      | WebDeveloper     |  35000 |        300000 |       5000 | 2021-10-11   |               1 |
+|      3 |      18 | RajShah         | Finance          |  20000 |        240000 |       3000 | 2021-12-11   |               1 |
+|      4 |      22 | RujulShah       | Marketing        |  30000 |        360000 |       5000 | 2020-11-07   |               2 |
+|      5 |       7 | AmilShah        | QA               |  35000 |        420000 |       5000 | 2018-12-11   |               4 |
+|      6 |       5 | KhushiShukla    | Trainee          |  20000 |        240000 |       3000 | 2015-07-16   |               7 |
+|      7 |      32 | Deep Vakharia   | FullStackTrainee |  25000 |        300000 |       5000 | 2012-11-24   |              10 |
+|      8 |     450 | JinalShah       | SystemAnalyst    |  15000 |        180000 |       3000 | 2010-09-25   |              11 |
+|      9 |     560 | NidhiJain       | FullStackTrainee |  25000 |        300000 |       5000 | 2009-05-10   |              12 |
+|     10 |     350 | GhanshyamPandya | FullStackTrainee |  25000 |        300000 |       5000 | 2004-10-09   |              17 |
++--------+---------+-----------------+------------------+--------+---------------+------------+--------------+-----------------+
+
+
+8) LIKE :
+
+SELECT * FROM department where emp_name like 'J%';
++--------+---------+-----------+------------------+--------+---------------+------------+--------------+-----------------+
+| emp_id | dept_id | emp_name  | emp_job          | salary | annual_salary | commission | joining_date | experience_year |
++--------+---------+-----------+------------------+--------+---------------+------------+--------------+-----------------+
+|      1 |      12 | JinalShah | FullStackTrainee |  25000 |        300000 |       5000 | 2022-02-02   |               2 |
+|      8 |     450 | JinalShah | SystemAnalyst    |  15000 |        180000 |       3000 | 2010-09-25   |              11 |
+|     14 |     210 | JinayShah | QATrainee        |  33000 |       3960000 |       7000 | 2019-10-16   |               3 |
++--------+---------+-----------+------------------+--------+---------------+------------+--------------+-----------------+
+
+ SELECT * FROM department where emp_name like 'P__%';
++--------+---------+----------------+--------------+--------+---------------+------------+--------------+-----------------+
+| emp_id | dept_id | emp_name       | emp_job      | salary | annual_salary | commission | joining_date | experience_year |
++--------+---------+----------------+--------------+--------+---------------+------------+--------------+-----------------+
+|      2 |      15 | PrachiShah     | WebDeveloper |  35000 |        300000 |       5000 | 2021-10-11   |               1 |
+|     15 |     110 | PreetJethaliya | CTO          | 100000 |       1200000 |      50000 | 2006-02-18   |              16 |
++--------+---------+----------------+--------------+--------+---------------+------------+--------------+-----------------+
+
+
+9) LIMIT :
+
+SELECT * FROM department limit 5;
++--------+---------+------------+------------------+--------+---------------+------------+--------------+-----------------+
+| emp_id | dept_id | emp_name   | emp_job          | salary | annual_salary | commission | joining_date | experience_year |
++--------+---------+------------+------------------+--------+---------------+------------+--------------+-----------------+
+|      1 |      12 | JinalShah  | FullStackTrainee |  25000 |        300000 |       5000 | 2022-02-02   |               2 |
+|      2 |      15 | PrachiShah | WebDeveloper     |  35000 |        300000 |       5000 | 2021-10-11   |               1 |
+|      3 |      18 | RajShah    | Finance          |  20000 |        240000 |       3000 | 2021-12-11   |               1 |
+|      4 |      22 | RujulShah  | Marketing        |  30000 |        360000 |       5000 | 2020-11-07   |               2 |
+|      5 |       7 | AmilShah   | QA               |  35000 |        420000 |       5000 | 2018-12-11   |               4 |
++--------+---------+------------+------------------+--------+---------------+------------+--------------+-----------------+
+
+
+10) IS NULL :
+
+SELECT * FROM department where emp_id is NULL;
+Empty set
+
+
+11) ORDER BY : 
+
+SELECT * FROM department ORDER BY emp_name asc;
++--------+---------+-----------------+------------------+--------+---------------+------------+--------------+-----------------+
+| emp_id | dept_id | emp_name        | emp_job          | salary | annual_salary | commission | joining_date | experience_year |
++--------+---------+-----------------+------------------+--------+---------------+------------+--------------+-----------------+
+|     11 |     260 | AaqibShaikh     | FullStackTrainee |  25000 |        300000 |       5000 | 2002-12-28   |              20 |
+|      5 |       7 | AmilShah        | QA               |  35000 |        420000 |       5000 | 2018-12-11   |               4 |
+|      7 |      32 | Deep Vakharia   | FullStackTrainee |  25000 |        300000 |       5000 | 2012-11-24   |              10 |
+|     10 |     350 | GhanshyamPandya | FullStackTrainee |  25000 |        300000 |       5000 | 2004-10-09   |              17 |
+|      1 |      12 | JinalShah       | FullStackTrainee |  25000 |        300000 |       5000 | 2022-02-02   |               2 |
+|      8 |     450 | JinalShah       | SystemAnalyst    |  15000 |        180000 |       3000 | 2010-09-25   |              11 |
+|     14 |     210 | JinayShah       | QATrainee        |  33000 |       3960000 |       7000 | 2019-10-16   |               3 |
+|      6 |       5 | KhushiShukla    | Trainee          |  20000 |        240000 |       3000 | 2015-07-16   |               7 |
+|      9 |     560 | NidhiJain       | FullStackTrainee |  25000 |        300000 |       5000 | 2009-05-10   |              12 |
+|      2 |      15 | PrachiShah      | WebDeveloper     |  35000 |        300000 |       5000 | 2021-10-11   |               1 |
+|     15 |     110 | PreetJethaliya  | CTO              | 100000 |       1200000 |      50000 | 2006-02-18   |              16 |
+|      3 |      18 | RajShah         | Finance          |  20000 |        240000 |       3000 | 2021-12-11   |               1 |
+|     12 |     540 | RaviVaghela     | FullStackTrainee |  25000 |        300000 |       5000 | 2020-01-02   |              20 |
+|      4 |      22 | RujulShah       | Marketing        |  30000 |        360000 |       5000 | 2020-11-07   |               2 |
+|     13 |     360 | TakshShah       | CRManager        |  50000 |        600000 |      10000 | 2021-11-07   |               1 |
++--------+---------+-----------------+------------------+--------+---------------+------------+--------------+-----------------+
+ 
+ 
+ 12) ALIAS :
+ 
+ SELECT emp_id AS Id, emp_name AS Employee FROM department;
++----+-----------------+
+| Id | Employee        |
++----+-----------------+
+|  1 | JinalShah       |
+|  2 | PrachiShah      |
+|  3 | RajShah         |
+|  4 | RujulShah       |
+|  5 | AmilShah        |
+|  6 | KhushiShukla    |
+|  7 | Deep Vakharia   |
+|  8 | JinalShah       |
+|  9 | NidhiJain       |
+| 10 | GhanshyamPandya |
+| 11 | AaqibShaikh     |
+| 12 | RaviVaghela     |
+| 13 | TakshShah       |
+| 14 | JinayShah       |
+| 15 | PreetJethaliya  |
++----+-----------------+
+
+
+13) GROUP BY : 
+
+SELECT emp_name,SUM(experience_year) AS "TotalExperience" FROM department GROUP BY emp_name;
++-----------------+-----------------+
+| emp_name        | TotalExperience |
++-----------------+-----------------+
+| AaqibShaikh     |              20 |
+| AmilShah        |               4 |
+| Deep Vakharia   |              10 |
+| GhanshyamPandya |              17 |
+| JinalShah       |              13 |
+| JinayShah       |               3 |
+| KhushiShukla    |               7 |
+| NidhiJain       |              12 |
+| PrachiShah      |               1 |
+| PreetJethaliya  |              16 |
+| RajShah         |               1 |
+| RaviVaghela     |              20 |
+| RujulShah       |               2 |
+| TakshShah       |               1 |
++-----------------+-----------------+
+
+
+14) HAVING :
+
+SELECT emp_name,SUM(experience_year) AS "TotalExperience" FROM department GROUP BY emp_name HAVING SUM(experience_year)>5;
++-----------------+-----------------+
+| emp_name        | TotalExperience |
++-----------------+-----------------+
+| AaqibShaikh     |              20 |
+| Deep Vakharia   |              10 |
+| GhanshyamPandya |              17 |
+| JinalShah       |              13 |
+| KhushiShukla    |               7 |
+| NidhiJain       |              12 |
+| PreetJethaliya  |              16 |
+| RaviVaghela     |              20 |
++-----------------+-----------------+
+
+
+

@@ -1,0 +1,479 @@
+1) ASCII()
+select ASCII('jinal');
++----------------+
+| ASCII('jinal') |
++----------------+
+|            106 |
++----------------+
+
+
+select ASCII('') ;
++-----------+
+| ASCII('') |
++-----------+
+|         0 |
++-----------+
+
+select ASCII('I') ;
++------------+
+| ASCII('I') |
++------------+
+|         73 |
++------------+
+
+
+2)BIN()
+
+select bin(12);
++---------+
+| bin(12) |
++---------+
+| 1100    |
++---------+
+
+3)BIT_LENGTH()
+
+select BIT_LENGTH('jinal');
++---------------------+
+| BIT_LENGTH('jinal') |
++---------------------+
+|                  40 |
++---------------------+
+
+
+4)CHAR()
+
+select CHAR(106,105);
++---------------+
+| CHAR(106,105) |
++---------------+
+| ji            |
++---------------+
+
+
+5)CHAR_LENGTH()
+
+select CHAR_LENGTH('jinal');
++----------------------+
+| CHAR_LENGTH('jinal') |
++----------------------+
+|                    5 |
++----------------------+
+
+6)CONCAT()
+
+select CONCAT('JINAL','shah');
++------------------------+
+| CONCAT('JINAL','shah') |
++------------------------+
+| JINALshah              |
++------------------------+
+
+7)CONCAT_WS()
+
+select CONCAT_WS('-','jinal','shah');
++-------------------------------+
+| CONCAT_WS('-','jinal','shah') |
++-------------------------------+
+| jinal-shah                    |
++-------------------------------+
+
+8)ELT()
+select ELT(1,'jinal','SHAH','jinalSHAH');
++-----------------------------------+
+| ELT(1,'jinal','SHAH','jinalSHAH') |
++-----------------------------------+
+| jinal                             |
++-----------------------------------+
+
+9)EXPORT_SET()
+
+select EXPORT_SET(5,'yes','no','|',6);
++--------------------------------+
+| EXPORT_SET(5,'yes','no','|',6) |
++--------------------------------+
+| yes|no|yes|no|no|no            |
++--------------------------------+
+
+10)FIELD()
+
+select FIELD("j","j","i","n","a","l);
++--------------------------------+
+| FIELD("j","j","i","n","a","l") |
++--------------------------------+
+|                              1 |
++--------------------------------+
+
+11)FIND_IN_SET()
+
+select FIND_IN_SET("i","j,i,n,a,l");
++------------------------------+
+| FIND_IN_SET("i","j,i,n,a,l") |
++------------------------------+
+|                            2 |
++------------------------------+
+
+12)FORMAT()
+
+select FORMAT(12000,0,'de_DE');
++-------------------------+
+| FORMAT(12000,0,'de_DE') |
++-------------------------+
+| 12.000                  |
++-------------------------+
+
+13)FROM_BASE64()
+
+select TO_BASE64('jinal');
++--------------------+
+| TO_BASE64('jinal') |
++--------------------+
+| amluYWw=           |
++--------------------+
+
+
+select FROM_BASE64('amluYWw=');
++-------------------------+
+| FROM_BASE64('amluYWw=') |
++-------------------------+
+| jinal                   |
++-------------------------+
+
+14)HEX()
+
+ select HEX('jinal');
++--------------+
+| HEX('jinal') |
++--------------+
+| 6A696E616C   |
++--------------+
+
+ select HEX(12);
++---------+
+| HEX(12) |
++---------+
+| C       |
++---------+
+
+15)INSERT()
+select INSERT('whatever',5,1,'so');
++-----------------------------+
+| INSERT('whatever',5,1,'so') |
++-----------------------------+
+| whatsover                   |
++-----------------------------+
+
+16)INSTR()
+select INSTR('whatsoever','so');
++--------------------------+
+| INSTR('whatsoever','so') |
++--------------------------+
+|                        5 |
++--------------------------+
+
+17)LEFT()
+select LEFT('jinal',2);
++-----------------+
+| LEFT('jinal',2) |
++-----------------+
+| ji              |
++-----------------+
+
+18)LENGTH()
+ select LENGTH('jinal');
++-----------------+
+| LENGTH('jinal') |
++-----------------+
+|               5 |
++-----------------+
+
+19)LIKE
+select emp_name from department where emp_name like '_a%';
++-------------+
+| emp_name    |
++-------------+
+| RajShah     |
+| AaqibShaikh |
+| RaviVaghela |
+| TakshShah   |
++-------------+
+
+20)LOCATE
+select LOCATE('jin','jinal');
++-----------------------+
+| LOCATE('jin','jinal') |
++-----------------------+
+|                     1 |
++-----------------------+
+
+
+21)LOWER(), i.e., LCASE()
+select LOWER('JINAL');
++----------------+
+| LOWER('JINAL') |
++----------------+
+| jinal          |
++----------------+
+
+select LCASE('JINAL');
++----------------+
+| LCASE('JINAL') |
++----------------+
+| jinal          |
++----------------+
+
+22)LPAD()
+
+select LPAD('shah',9,'jinal');
++------------------------+
+| LPAD('shah',9,'jinal') |
++------------------------+
+| jinalshah              |
++------------------------+
+
+23)LTRIM()
+select LTRIM('            jinal');
++----------------------------+
+| LTRIM('            jinal') |
++----------------------------+
+| jinal                      |
++----------------------------+
+
+24)MAKE_SET()
+select MAKE_SET(1|2,'jinal','SHAH','js');
++-----------------------------------+
+| MAKE_SET(1|2,'jinal','SHAH','js') |
++-----------------------------------+
+| jinal,SHAH                        |
++-----------------------------------+
+
+25)NOT LIKE
+select emp_name from department WHERE emp_name NOT LIKE 'J%';
++-----------------+
+| emp_name        |
++-----------------+
+| PrachiShah      |
+| RajShah         |
+| RujulShah       |
+| AmilShah        |
+| KhushiShukla    |
+| Deep Vakharia   |
+| NidhiJain       |
+| GhanshyamPandya |
+| AaqibShaikh     |
+| RaviVaghela     |
+| TakshShah       |
+| PreetJethaliya  |
++-----------------+
+
+
+26)NOT REGEXP
+select emp_job from department WHERE emp_name NOT REGEXP '^r';
++------------------+
+| emp_job          |
++------------------+
+| FullStackTrainee |
+| WebDeveloper     |
+| QA               |
+| Trainee          |
+| FullStackTrainee |
+| SystemAnalyst    |
+| FullStackTrainee |
+| FullStackTrainee |
+| FullStackTrainee |
+| CRManager        |
+| QATrainee        |
+| CTO              |
++------------------+
+
+
+27)OCT()
+select OCT(12);
++---------+
+| OCT(12) |
++---------+
+| 14      |
++---------+
+
+
+28)ORD()
+ select ORD('jinal');
++--------------+
+| ORD('jinal') |
++--------------+
+|          106 |
++--------------+
+
+
+29)QUOTE()
+
+select emp_job,QUOTE(emp_name) from department;
++------------------+-------------------+
+| emp_job          | QUOTE(emp_name)   |
++------------------+-------------------+
+| FullStackTrainee | 'JinalShah'       |
+| WebDeveloper     | 'PrachiShah'      |
+| Finance          | 'RajShah'         |
+| Marketing        | 'RujulShah'       |
+| QA               | 'AmilShah'        |
+| Trainee          | 'KhushiShukla'    |
+| FullStackTrainee | 'Deep Vakharia'   |
+| SystemAnalyst    | 'JinalShah'       |
+| FullStackTrainee | 'NidhiJain'       |
+| FullStackTrainee | 'GhanshyamPandya' |
+| FullStackTrainee | 'AaqibShaikh'     |
+| FullStackTrainee | 'RaviVaghela'     |
+| CRManager        | 'TakshShah'       |
+| QATrainee        | 'JinayShah'       |
+| CTO              | 'PreetJethaliya'  |
++------------------+-------------------+
+
+
+30)REGEXP_INSTR()
+select REGEXP_INSTR('JINAL SHAH','S');
++--------------------------------+
+| REGEXP_INSTR('JINAL SHAH','S') |
++--------------------------------+
+|                              7 |
++--------------------------------+
+
+31)REGEXP_REPLACE
+select REGEXP_REPLACE('JINALSHAH','SHAH','shah');
++-------------------------------------------+
+| REGEXP_REPLACE('JINALSHAH','SHAH','shah') |
++-------------------------------------------+
+| JINALshah                                 |
++-------------------------------------------+
+
+32)REPEAT()
+select REPEAT('HELLO',3);
++----------------------+
+| REPEAT('HELLO',4)    |
++----------------------+
+| HELLOHELLOHELLOHELLO |
++----------------------+
+
+33)REPLACE()
+select REPLACE('jinalshah','jinal','JINAL');
++--------------------------------------+
+| REPLACE('jinalshah','jinal','JINAL') |
++--------------------------------------+
+| JINALshah                            |
++--------------------------------------+
+
+34)REVERSE()
+ select REVERSE('SHAH JINAL');
++------------------------+
+| REVERSE('SHAH JINAL')  |
++------------------------+
+| LANIJ HAHS             |
++------------------------+
+
+35)RIGHT()
+select RIGHT('SHAH JINAL',6);
++------------------------+
+| RIGHT('SHAH JINAL',6)  |
++------------------------+
+|  JINAL                 |
++------------------------+
+
+36)RPAD()
+select RPAD('HELLO JINAL',14,'|');
++----------------------------+
+| RPAD('HELLO JINAL',14,'|') |
++----------------------------+
+| HELLO JINAL|||             |
++----------------------------+
+
+37)RTRIM()
+ select RTRIM('HELLO JINAL          ');
++--------------------------------+
+| RTRIM('HELLO JINAL          ') |
++--------------------------------+
+| HELLO JINAL                    |
++--------------------------------+
+
+38)SOUNDEX()
+select SOUNDEX('HELLO JINAL');
++------------------------+
+| SOUNDEX('HELLO JINAL') |
++------------------------+
+| H453                   |
++------------------------+
+
+39)SPACE()
+select 'hello',SPACE(5),'JINAL';
++-------+----------+-------+
+| hello | SPACE(5) | JINAL |
++-------+----------+-------+
+| hello |          | JINAL |
++-------+----------+-------+
+
+40)STRCMP()
+select STRCMP('helloo','hey');
++------------------------+
+| STRCMP('helloo','hey') |
++------------------------+
+|                     -1 |
++------------------------+
+
+41)SUBSTRING(), i.e., SUBSTR(), MID()
+ select  SUBSTR('helloothere',7);
++-------------------------+
+| SUBSTR('helloothere',7) |
++-------------------------+
+| there                   |
++-------------------------+
+
+42)SUBSTRING_INDEX()
+select SUBSTRING_INDEX('WWW.JINALSHAH.COM','.',-2);
++---------------------------------------------+
+| SUBSTRING_INDEX('WWW.JINALSHAH.COM','.',-2) |
++---------------------------------------------+
+| JINALSHAH.COM                               |
++---------------------------------------------+
+
+ select SUBSTRING_INDEX('WWW.JINALSHAH.COM','.',2);
++--------------------------------------------+
+| SUBSTRING_INDEX('WWW.JINALSHAH.COM','.',2) |
++--------------------------------------------+
+| WWW.JINALSHAH                              |
++--------------------------------------------+
+
+43)TRIM()
+select TRIM(LEADING 'w' FROM 'w.hello.com');
++-------------------------------------------+
+| TRIM(LEADING 'w' FROM 'w.hello.com')      |
++-------------------------------------------+
+| .hello.com                                |
++-------------------------------------------+
+
+select TRIM(          'w.hello.com');
++------------------------------------+
+| TRIM(          'w.hello.com')      |
++------------------------------------+
+| w.hello.com                        |
++------------------------------------+
+
+44)UPPER()
+ select UPPER('hello');
++----------------+
+| UPPER('hello') |
++----------------+
+| HELLO          |
++----------------+
+
+45)UNHEX()
+ select HEX('hello');
++--------------+
+| HEX('hello') |
++--------------+
+| 68656C6C6F   |
++--------------+
+
+select UNHEX('68656C6C6F');
++---------------------+
+| UNHEX('68656C6C6F') |
++---------------------+
+| hello               |
++---------------------+
