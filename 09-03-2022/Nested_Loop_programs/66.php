@@ -7,7 +7,7 @@
 </form>
 
 <?php
-if($_SERVER["REQUEST_METHOD"]=="POST")
+if(isset($_POST["submit"]))
 {
 $num=100;
 $n=2;

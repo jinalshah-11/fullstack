@@ -7,7 +7,7 @@
 </form>
 
 <?php
-if(isset($_REQUEST["submit"]))
+if(isset($_POST["submit"]))
 {
     $num = $_POST["first"];
 
