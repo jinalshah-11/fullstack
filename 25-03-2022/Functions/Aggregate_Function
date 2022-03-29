@@ -1,0 +1,25 @@
+AGGREGRATE FUNCTION : 
+
+1)SUM()
+
+select sum(salary) from department;
+
+
+2)Max()
+
+select max(salary) from department;
+
+
+3)Min()
+
+select min(salary) from department;
+
+
+4)Avg()
+
+select avg(salary) from department;
+
+
+5)Count()
+
+select count(salary) from department;
