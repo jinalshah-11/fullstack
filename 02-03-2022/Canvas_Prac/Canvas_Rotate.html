@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="canva" width="250" height="150" style="border:1px solid black;"></canvas>
+<script>
+var canvas = document.getElementById("canva");
+var can = canvas.getContext("2d");
+can.rotate(20 * Math.PI / 180);
+can.fillRect(50, 20, 120, 70);
+</script>
+</body>
+</html>
