@@ -1,0 +1,37 @@
+<html>
+    <head>
+       <title>ProfitLoss</title> 
+    </head>
+    <body>
+        <h2>Profit-Loss</h2>
+        <label>Enter Cost Price: </label>
+        <input type="text" name="" id="cp">
+        <br><br>
+        <label>Enter Selling Price:</label>
+        <input type="text" name="" id="sp">
+        <br><br>
+        <input type="submit" onclick="profitloss()">
+
+        <script>
+            function profitloss()
+            {
+                var costp=parseInt(document.getElementById("cp").value);
+                var sellp=parseInt(document.getElementById("sp").value);
+                if(sellp>costp)
+                {
+                    var p=sellp-costp;
+                    document.write("Profit is of Rs :",p)
+                }
+                else if(sellp<costp)
+                {
+                    var l=costp-sellp;
+                    document.write("Loss is of Rs :",l);
+                }
+                else
+                {
+                    document.write("No Profit No Loss");
+                }
+            }
+        </script>
+    </body>
+</html>
