@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date Practice</title>
+</head>
+<body>
+    <p id="DatePrac"></p>
+
+    <script>
+        const dt=new Date();
+        document.getElementById("DatePrac").innerHTML=dt;
+        document.write("<h4>Converting Date to String</h4>"+(dt.toString()));
+        document.write("<h4>Converting Date to a UTC String Date Display Standard</h4>" + (dt.toUTCString()));
+        document.write("<h4>Converting Date to a Readable Format</h4>"+(dt.toDateString())+"<br>");
+
+        let y=dt.getFullYear();
+        document.write("Full Year is"+(y)+"<br>");
+
+        let d=dt.getDay();
+        document.write("Day is:"+(d)+"<br>");
+
+        let t=dt.toJSON();
+        document.write("Returns Date as String,Formatted as JSON date<br>"+ t+"<br>");
+
+        let s=dt.toISOString();
+        document.write("<br>Returns Date as String in ISO Format"+s+"<br>");
+
+        document.write("<br>"+dt.getHours()+"<br>");
+        document.write(dt.getSeconds()+"<br>");
+        document.write(dt.getMilliseconds()+"<br>");
+        document.write(dt.getUTCDate()+"<br>");
+        document.write(dt.getUTCDay()+"<br>");
+        
+        let dateCo=dt.constructor;
+        console.log(dateCo);
+    </script>
+</body>
+</html>

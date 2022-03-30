@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Time</title>
+    </head>
+<body>
+<p id="demo"></p>
+
+<script>
+const min = 1000 * 60;
+const h = min * 60;
+const d = h * 24;
+const y = d * 365;
+
+const dt = new Date();
+let year = Math.round(dt.getTime() / y);
+
+document.getElementById("demo").innerHTML = year;
+</script>
+
+</body>
+</html>

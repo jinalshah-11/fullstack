@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>AJAX Practice</h2>
+
+<div id="l">
+<button type="button" onclick="loadFile()">Change Content</button>
+</div>
+
+<script>
+function loadFile() {
+  const xhttps = new XMLHttpRequest();
+  xhttps.onload = function() {
+    document.getElementById("l").innerHTML = this.responseText;
+  }
+  xhttps.open("GET", "hello.txt");
+  xhttps.send();
+}
+</script>
+
+</body>
+</html>
