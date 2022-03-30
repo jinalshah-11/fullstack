@@ -1,0 +1,34 @@
+<!Doctype html>
+<html>
+<head>
+
+	</head>
+	<body>
+		<h2>Check greater of Two number</h2>
+		<br>
+		Enter number 1: <input type="text" id="firstnum"></input><br><br>
+		Enter number 2: <input type="text" id="secondnum"></input><br><br>
+        <button onclick="greaternum()">Submit</button>
+		<script>
+			function greaternum()
+			{
+				var n1, n2;
+				n1 = Number(document.getElementById("firstnum").value);
+				n2 = Number(document.getElementById("secondnum").value);
+
+				if(n1>n2)
+				{
+					document.write(n1+ "&nbsp is Larger");
+				}
+				else if(n2>n1)
+				{
+					document.write(n2+ "&nbsp is Larger");
+				}
+				else 
+				{
+					document.write("Both are Equal")
+				}	
+			}
+		</script>
+	</body>
+</html>

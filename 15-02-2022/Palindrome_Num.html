@@ -1,0 +1,35 @@
+<html>  
+<head>  
+<title> Palindrome Program in JavaScript </title>  
+  
+</head>  
+<body>    
+        <h2> Palindrome Program in JavaScript </h2>    
+        <label> Enter any string : </label>   
+        <input type= "text" id= "p1"> <br> <br>
+        <input type= "submit" onclick = "palindrome()" > <br>  <br> 
+        <label> Result :</label>   
+        <input type = "text" id = "p2" style="height: 40px; width:280px;"></b> <br> <br>  
+        
+        
+        <script>  
+        function palindrome()  
+        {  
+        var n1= document.getElementById("p1").value;  
+        var n2 = "";  
+        for (i = n1.length-1; i >= 0; i--)  
+            {  
+            n2 = n2 + n1[i]  
+            }  
+            if (n1 == n2)  
+            {
+                document.getElementById("p2"). value = n2 + " is a Palindrome String ";  
+            }
+            else
+            {
+                document.getElementById("p2"). value = n2 + " is not a Palindrome String";  
+            }
+        }  
+        </script>  
+        </body>  
+        </html> 
