@@ -1,0 +1,11 @@
+create database CRUD;
+show databases;
+
+use CRUD;
+
+CREATE TABLE `student`(enroll_no bigint(10) auto_increment primary key, student_name varchar(20) NOT NULL,mobile_no bigint(10) NOT NULL unique,division varchar(6) NOT NULL default 'A');
+
+
+CREATE TABLE `user`(u_id bigint(7) auto_increment primary key,username varchar(25)unique NOT NULL ,password varchar(30) NOT NULL);
+
+
