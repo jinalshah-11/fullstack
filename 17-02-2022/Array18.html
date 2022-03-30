@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Sum of Individual Column of 2D Array
+        </title>
+    </head>
+    <body>
+        <script>
+            function column_sum(arr)
+{
+    var i,j,sum = 0; 
+    document.write( "<br>"+"Finding Sum of each column:"+"<br>");
+    for (i = 0; i < m; ++i) {
+        for (j = 0; j < n; ++j) {
+            sum = sum + arr[j][i];
+        }
+        document.write( "Sum of the column " + i +" = " + sum +"<br>");
+        sum = 0;
+    }
+}
+var i,j;
+    var arr=new Array(m).fill(0);
+    for(var k=0;k<m;k++)
+    {
+        arr[k]=new Array(n).fill(0);
+    }
+    var x = 1;
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++)
+            arr[i][j]=  x++;
+        column_sum(arr);
+    </script>
+    </body>
+</html>
