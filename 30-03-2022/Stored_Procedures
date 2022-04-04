@@ -1,0 +1,67 @@
+STORED PROCEDURES :
+
+1) IN :
+
+DELIMITER //
+CREATE PROCEDURE sp_age(IN age int)
+BEGIN 
+select student_name,mobile_no from student where age=age;  
+END//
+Query OK, 0 rows affected 
+
+delimiter ;
+
+CALL sp_age(22);
++------------------+------------+
+| student_name     | mobile_no  |
++------------------+------------+
+| Taksh Shah       | 9874560123 |
+| Ravi Vaghela     | 9874321560 |
+| Ghanshyam Pandya | 6325147890 |
+| JinalShah        | 7896541023 |
+| Nidhi Jain       | 9532146700 |
+| Prachi Shah      | 7894563210 |
+| Khushi Shukla    | 8401652379 |
+| Aaqib Shaikh     | 9874563201 |
++------------------+------------+
+
+
+2) OUT :
+
+DELIMITER //
+
+CREATE PROCEDURE sp_CountAge(OUT Names int)
+    -> BEGIN
+    -> select count(student_name) into Names from student where age=22;
+    -> END //
+
+DELIMITER ;
+CALL sp_CountAge(@pname);
+
+select @pname as countname;
++-----------+
+| countname |
++-----------+
+|         1 |
++-----------+
+
+
+3) INOUT :
+
+DELIMITER //
+
+CREATE PROCEDURE sp_count_InOut(inout Names int, In Age int)
+    -> BEGIN
+    -> select count(student_name) into Names from student where age=age;
+    -> END //
+
+DELIMITER ; 
+CALL sp_count_InOut(@T,21);
+ 
+Select @T as Countstudent_name;
++-------------------+
+| Countstudent_name |
++-------------------+
+|                 8 |
++-------------------+
+
