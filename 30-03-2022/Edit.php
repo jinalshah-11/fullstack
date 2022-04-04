@@ -21,7 +21,7 @@ if(isset($_GET['email']))
 <title>Edit</title>
 </head>
 <body>
-<form method="post">
+<form method="post" style="text-align: center;">
 Enter Full Name : <input type="text" name="fullname" value="<?php echo $fullname?>" placeholder="Enter FullName"><br><br>
 Enter UserName : <input type="text" name="uname" value="<?php echo $uname?>" placeholder="Enter UserName"><br><br>
 Enter Email : <input type="text" name="email" value="<?php echo $email?>" placeholder="Enter Email" disabled><br><br>

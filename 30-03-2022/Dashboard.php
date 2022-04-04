@@ -4,7 +4,7 @@
   <title>Login</title>
 </head>
 <body>
-  <form method="post">
+  <form method="post" style="text-align: center;">
     <input type="submit" name="login" value="Login"><br><br>
     <input type="submit" name="signup" value="Sign Up"><br><br>
     </form>

@@ -4,7 +4,7 @@
     <title>SignUp</title>
 </head>
 <body>
-    <form method="post">
+    <form method="post" style="text-align: center;">
         <h2>SignUp</h2>
         Enter FullName : <input type="text" name="fullname" placeholder="Enter your FullName" required><br><br>
         Enter Email : <input type="text" name="email" placeholder="Enter your EmailId" required><br><br>
@@ -25,17 +25,13 @@ if (isset($_POST['signup']))
     $uname = $_POST['uname'];
     $mobile = $_POST['mobile'];
     $pass = $_POST['pass'];
-    $cpass = $_POST['cpass'];
    
         $conn = mysqli_connect("localhost", "root", "", "CRUD") or die("Error in Database Connection");
         $query = mysqli_query($conn, "Insert into client(fullname,email,user_name,mobile,password) values('$fullname','$email','$uname',$mobile,'$pass')") or die("Error in User Signup");
         if ($query) 
         {
-            if($pass==$cpass)
-            {
                 echo "<br><h2>SignUp Successful<h2>";
                 header("Location:LoGin.php");
-            }
         }
         else 
         {

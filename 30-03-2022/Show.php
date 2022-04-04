@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Insert</title>
+</head>
+<body>
+    <form action="" method="POST" style="text-align: center;">
+    Add User :<input type="submit" name="insert" value="Insert">
+    </form>
+</body>
+</html>
 <?php
     echo "<h2> Show Data </h2>";
     $conn=mysqli_connect("localhost","root","","CRUD") or die("Error in Connection");
@@ -11,11 +22,15 @@
         echo "<td>".$rows["email"]."</td>";
         echo "<td>".$rows["user_name"]."</td>";
         echo "<td>".$rows["mobile"]."</td>";
-        //echo "<td>".$rows["password"]."</td>";
         echo "<td> " . "<a href=Edit.php?email=$eemail> Edit </a>". " </td>";
-        echo "<td> " . "<a href=Delete.php?email=$del> Delete </a>". " </td>";
+        echo "<td> " . "<a href=Delete.php?email=$eemail> Delete </a>". " </td>";
         echo "</tr>";
     }
     echo "</table>";
+
+    if (isset($_POST['insert'])) 
+    {
+        header('Location: Insert.php');
+    }
     mysqli_close($conn);
 ?>

@@ -5,39 +5,42 @@
 </head>
 <body>
     <form action="" method="POST" style="text-align: center;">
-        <b>Enter FullName : </b><input type="text" name="name" required><br><br>
-        <b>Enter Username : </b><input type="text" name="uname" required><br><br>
+        <b>Enter FullName : </b><input type="text" name="fullname" required><br><br>
+        <b>Enter Username : </b><input type="text" name="user_name" required><br><br>
         <b>Enter Mobile : </b><input type="text" name="mobile" required><br><br>
-        <b>Enter email : </b><input type="email" name="email" required><br><br>
-        <b>Enter password </b><input type="text" name="password" required><br><br>
-        <input type="submit" name="insert" value="Insert">
+        <b>Enter Email : </b><input type="email" name="email" required><br><br>
+        <b>Enter Password : </b><input type="text" name="password" required><br><br>
+        <b>Confirm Password : </b><input type="text" name="cpassword" required><br><br>
+        Add User : <input type="submit" name="insert" value="Insert">
     </form>
 </body>
 </html>
 <?php
-header('refresh:10');
-if(isset(($_POST['insert']))){
+
+if(isset(($_POST['insert'])))
+{
     header('refresh:1');
-    
     $fullname=$_POST['fullname'];
-    $username=$_POST['username'];
+    $username=$_POST['user_name'];
     $mobile=$_POST['mobile'];
     $email=$_POST['email'];
     $password=$_POST['password'];
-
-    $conn=mysqli_connect("localhost","root","","CRUD") or die("error in con");
-    $query=mysqli_query($conn,"Insert into client values('$fullname','$username',$mobile,'$email','$password')") or die('enter data');
-    if($query){
-       echo "Data added Successfully";
-       header('location:Dashboard.php');
+    
+        $conn=mysqli_connect("localhost","root","","CRUD") or die("Error in Connection");
+        $query=mysqli_query($conn,"Insert into client(fullname,user_name,mobile,email,password) values('$fullname','$username',$mobile,'$email','$password')") or die('Enter Data');
+        if($query)
+        {
+            echo "Data added Successfully";
+            header('Location : LoGin.php');
+        }
+        else
+        {
+            echo "Error in Inserting Data";
+        }
+        mysqli_close($conn);
     }
-    else{
-       echo "Error in Inserting Data";
-    }
-    mysqli_close($conn);
-}
-
-if(empty($_POST['fullname'])){
-    header('location:LoGin.php');
-}
+//}
 ?>
+
+
+
