@@ -1,0 +1,77 @@
+use CRUD;
+
+delimiter $$
+CREATE FUNCTION Daily_Wages(wage decimal(10,2))
+    -> returns decimal(10,2)
+    -> DETERMINISTIC
+    -> BEGIN
+    -> DECLARE daily_wage decimal(10,2);
+    -> Set daily_wage=wage*8;
+    -> return (daily_wage);
+    -> END$$
+Query OK, 0 rows affected (0.006 sec)
+
+DELIMITER;
+Select Daily_Wages(50);
++-----------------+
+| Daily_Wages(50) |
++-----------------+
+|          400.00 |
++-----------------+
+
+
+DELIMITER $$
+
+CREATE FUNCTION Customer_Occupation(age int)
+    -> RETURNS VARCHAR(20)
+    -> DETERMINISTIC
+    -> BEGIN
+    -> DECLARE customer_occupation VARCHAR(20);
+    -> IF age > 35 THEN
+    -> SET customer_occupation = 'Scientist';
+    -> ELSEIF (age <= 35 AND age >= 30) THEN
+    -> SET customer_occupation = 'Engineer';
+    -> ELSEIF age < 30 THEN
+    -> SET customer_occupation = 'Actor';
+    -> END IF;
+    -> RETURN (customer_occupation);
+    -> END$$
+
+
+DELIMITER;
+
+SELECT student_name,mobile_no,age FROM student ORDER BY age; 
++------------------+------------+-----+
+| student_name     | mobile_no  | age |
++------------------+------------+-----+
+| Taksh Shah       | 9874560123 |  21 |
+| JinalShah        | 7896541023 |  22 |
+| Aaqib Shaikh     | 9874563201 |  23 |
+| Ghanshyam Pandya | 6325147890 |  25 |
+| Ravi Vaghela     | 9874321560 |  30 |
+| Khushi Shukla    | 8401652379 |  32 |
+| Nidhi Jain       | 9532146700 |  35 |
+| Prachi Shah      | 7894563210 |  40 |
++------------------+------------+-----+
+
+
+DELIMITER ;
+
+SELECT student_name,Customer_Occupation(age) FROM student ORDER BY age; 
++------------------+--------------------------+
+| student_name     | Customer_Occupation(age) |
++------------------+--------------------------+
+| Taksh Shah       | Actor                    |
+| JinalShah        | Actor                    |
+| Aaqib Shaikh     | Actor                    |
+| Ghanshyam Pandya | Actor                    |
+| Ravi Vaghela     | Engineer                 |
+| Khushi Shukla    | Engineer                 |
+| Nidhi Jain       | Engineer                 |
+| Prachi Shah      | Scientist                |
++------------------+--------------------------+
+
+CREATE TABLE People(age INT NOT NULL, name varchar(30));
+
+delimiter //
+

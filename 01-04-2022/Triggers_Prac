@@ -1,0 +1,103 @@
+CREATE TABLE Members (id INT AUTO_INCREMENT primary key,name VARCHAR(100) NOT NULL, email VARCHAR(255),birthdate DATE);
+
+CREATE TABLE reminders(id INT AUTO_INCREMENT,memberId INT,message VARCHAR(255) NOT NULL,PRIMARY KEY (id , memberId));
+
+DELIMITER $$
+
+CREATE TRIGGER after_members_insert
+    -> AFTER INSERT
+    -> ON Members FOR EACH ROW
+    -> BEGIN
+    -> IF NEW.birthdate IS NULL THEN
+    -> INSERT INTO reminders(memberId, message)
+    -> VALUES(new.id,CONCAT('Hello ', NEW.name, ', Please update your date of birth.'));
+    -> END IF;
+    -> END$$
+
+
+INSERT INTO Members(name, email, birthdate) VALUES('Jinal Shah', 'jinal@gmail.com', '1999-12-11');
+
+SELECT * FROM Members;
++----+------------+-----------------+------------+
+| id | name       | email           | birthdate  |
++----+------------+-----------------+------------+
+|  1 | Jinal Shah | jinal@gmail.com | 1999-12-11 |
++----+------------+-----------------+------------+
+
+
+INSERT INTO Members(name, email, birthdate) VALUES('Prachi Shah','prachi@gmail.com',NULL);
+
+
+select * from reminders;
++----+----------+------------------------------------------------------+
+| id | memberId | message                                              |
++----+----------+------------------------------------------------------+
+|  1 |        2 | Hello Prachi Shah, Please update your date of birth. |+----+----------+------------------------------------------------------+
+
+
+CREATE TABLE Person(name varchar(20), age int);
+
+INSERT INTO Person VALUES ('Jinal', 22), ('Nidhi', 22),('Prachi',25);
+
+
+delimiter //
+
+CREATE TRIGGER Person_bu BEFORE UPDATE
+    -> ON Person
+    -> FOR EACH ROW
+    -> IF NEW.age < 18 THEN
+    -> SIGNAL SQLSTATE '50002' SET MESSAGE_TEXT = 'Person must be older than 18.';
+    -> END IF; //
+    
+delimiter ;
+
+CREATE TRIGGER Person_bu BEFORE UPDATE ON Person FOR EACH ROW IF NEW.age < 18 THEN SIGNAL SQLSTATE '50002' SET MESSAGE_TEXT = 'Person must be older than 18.'; END IF;//
+
+UPDATE Person SET age = 16 WHERE name = 'Khushi Shukla';
+ERROR 1644 (50002): Person must be older than 18.
+
+delimiter //
+delimiter ;
+ 
+ CREATE TABLE person_archive (name varchar(20), age int);
+ 
+ delimiter //
+ 
+ CREATE TRIGGER person_bedel BEFORE DELETE  ON Person FOR EACH ROW INSERT INTO person_archive (name, age) VALUES (OLD.name, OLD.age);//
+ 
+ delimiter ;
+ DELETE FROM Person WHERE name='Khushi Shukla';
+ 
+ CREATE TABLE average_age (age int);
+ Query OK, 0 rows affected 
+ 
+ delimiter //
+
+CREATE TRIGGER person_ad AFTER DELETE
+    -> ON Person
+    -> FOR EACH ROW
+    -> UPDATE average_age SET average = (SELECT AVG(person.age) FROM Person); //
+Query OK, 0 rows affected 
+
+delimiter ;
+delimiter //
+
+
+CREATE PROCEDURE sp_age(IN age int) BEGIN select student_name,mobile_no from student where age=age;  END//
+Query OK, 0 rows affected 
+
+delimiter ;
+
+CALL sp_age(22);
++------------------+------------+
+| student_name     | mobile_no  |
++------------------+------------+
+| Taksh Shah       | 9874560123 |
+| Ravi Vaghela     | 9874321560 |
+| Ghanshyam Pandya | 6325147890 |
+| JinalShah        | 7896541023 |
+| Nidhi Jain       | 9532146700 |
+| Prachi Shah      | 7894563210 |
+| Khushi Shukla    | 8401652379 |
+| Aaqib Shaikh     | 9874563201 |
++------------------+------------+
